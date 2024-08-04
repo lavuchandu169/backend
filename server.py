@@ -11,11 +11,11 @@ import traceback
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "vafuiwkxdml"
-cors = CORS(app, supports_credentials=True, resources={r'/verifyCookie': {'origins': 'http://127.0.0.1:3000', "allow_headers": ["Content-Type", "Authorization", "X-Requested-With"], "methods": ["GET", "POST", "OPTIONS", "PUT", "DELETE"], "expose_headers": ["Content-Disposition"]}})
+cors = CORS(app, supports_credentials=True, resources={r'/verifyCookie': {'origins': 'https://frontend-rhp6.onrender.com', "allow_headers": ["Content-Type", "Authorization", "X-Requested-With"], "methods": ["GET", "POST", "OPTIONS", "PUT", "DELETE"], "expose_headers": ["Content-Disposition"]}})
 
 @app.after_request
 def add_cors_headers(response):
-    response.headers["Access-Control-Allow-Origin"] = "http://localhost:3000"
+    response.headers["Access-Control-Allow-Origin"] = "https://frontend-rhp6.onrender.com"
     response.headers["Access-Control-Allow-Credentials"] = "true"
     response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS, PUT, DELETE"
     response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization, X-Requested-With"
